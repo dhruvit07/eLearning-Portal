@@ -18,12 +18,12 @@
                 <a href="{{ route('show.team') }}"
                     class="nav-item nav-link {{ Request::routeIs('show.team') ? 'active' : ''}}">Our Team</a>
                 <div class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
+                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">About</a>
                     <div class="dropdown-menu fade-down m-0">
-                        <a href="" class="dropdown-item">Our Team</a>
-                        <a href="testimonial.html" class="dropdown-item">Testimonial</a>
-                        <a href="404.html" class="dropdown-item">404 Page</a>
+                        <a href="{{ route('show.about') }}" class="dropdown-item">About Us</a>
+                        <a href="{{ route('show.mission') }}" class="dropdown-item">Mission and Vision</a>
                     </div>
+                    
                 </div>
                 <a href="contact.html" class="nav-item nav-link">Contact</a>
             </div>

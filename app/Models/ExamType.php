@@ -12,7 +12,7 @@ class ExamType extends Model
 
     protected $fillable = ['name'];
 
-    public function syllabi()
+    public function syllabus()
     {
         return $this->hasMany(Syllabus::class, 'exam_type_id');
     }

@@ -8,6 +8,11 @@ use App\Models\Team;
 
 class TeamController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth:admin');
+    }
+
     public function index()
     {
         $team = Team::all();

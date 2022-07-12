@@ -16,7 +16,7 @@ class ExamTypeController extends Controller
     public function show($id)
     {
         $category = ExamType::where('id', $id)->first();
-        $syllabi = $category->syllabi;
+        $syllabi = $category->syllabus;
         return view('front.syllabi', compact(['category', 'syllabi']));
     }
 }

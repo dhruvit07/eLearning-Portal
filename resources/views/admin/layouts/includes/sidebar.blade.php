@@ -53,10 +53,42 @@
                     </ul>
                 </div>
             </li>
+            <li
+                class="nav-item  {{(Request::routeIs('admin.about')|| Request::routeIs('admin.mission') )? 'active' : '' }}">
+                <a class="nav-link" data-toggle="collapse" href="#about">
+                    <i class="material-icons">about</i>
+                    <p> About
+                        <b class="caret"></b>
+                    </p>
+                </a>
+                <div class="collapse {{(Request::routeIs('admin.about')||  Request::routeIs('admin.mission') )? 'show' : '' }}"
+                    id="about">
+                    <ul class="nav">
+                        <li class="nav-item  {{ Request::routeIs('admin.about') ? 'active' : '' }}">
+                            <a class="nav-link" href="{{ route('admin.about') }}">
+                                <i class="material-icons">category</i>
+                                <p> About </p>
+                            </a>
+                        </li>
+                        <li class="nav-item  {{ Request::routeIs('admin.mission') ? 'active' : '' }}">
+                            <a class="nav-link" href="{{ route('admin.mission') }}">
+                                <i class="material-icons">backpack</i>
+                                <p> Mission and Vision </p>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
             <li class="nav-item  {{ Request::routeIs('admin.team') ? 'active' : '' }}">
                 <a class="nav-link" href="{{ route('admin.team') }}">
                     <i class="material-icons">groups</i>
                     <p> Team </p>
+                </a>
+            </li>
+            <li class="nav-item  {{ Request::routeIs('admin.generalSettings') ? 'active' : '' }}">
+                <a class="nav-link" href="{{ route('admin.generalSettings') }}">
+                    <i class="material-icons">settings</i>
+                    <p> General Settings </p>
                 </a>
             </li>
             <li class="nav-item ">

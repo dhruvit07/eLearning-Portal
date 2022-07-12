@@ -36,6 +36,10 @@
   <script src="{{ asset('assets/js/core/bootstrap-material-design.min.js') }}"></script>
   <script src="{{ asset('assets/js/plugins/perfect-scrollbar.jquery.min.js') }}"></script>
 
+  <!-- Plugin for the momentJs  -->
+  <script src="{{ asset('assets/js/plugins/moment.min.js') }}"></script>
+  <!--  Plugin for Sweet Alert -->
+  <script src="{{ asset('assets/js/plugins/sweetalert2.js') }}"></script>
   <!-- Forms Validations Plugin -->
   <script src="{{ asset('assets/js/plugins/jquery.validate.min.js') }}"></script>
   <!-- Plugin for Fileupload, full documentation here: http://www.jasny.net/bootstrap/javascript/#fileinput -->
@@ -46,9 +50,13 @@
   <script src="{{ asset('assets/js/material-dashboard.min.js?v=2.1.2') }}" type="text/javascript"></script>
   <!--	Plugin for Select, full documentation here: http://silviomoreto.github.io/bootstrap-select -->
   <script src="{{ asset('assets/js/plugins/bootstrap-selectpicker.js') }}"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/core-js/2.4.1/core.js"></script>
+  <!-- Library for adding dinamically elements -->
+  <script src="{{ asset('/assets/js/plugins/arrive.min.js') }}"></script>
   {{-- TinyMCE Script --}}
   <script src="https://cdn.tiny.cloud/1/c7z8wx5m5u6j9yj237a233drpztw21qo2l4k45cxbzch4qov/tinymce/6/tinymce.min.js"
     referrerpolicy="origin"></script>
+  <!-- Include a polyfill for ES6 Promises (optional) for IE11, UC Browser and Android browser support SweetAlert -->
   <script>
     tinymce.init({
         selector: 'textarea',
@@ -109,7 +117,32 @@
       });
     });
   </script>
+
+  {{-- Validation Script --}}
+  <script>
+    function setFormValidation(id) {
+      $(id).validate({
+        highlight: function(element) {
+          $(element).closest('.form-group').removeClass('has-success').addClass('has-danger');
+          $(element).closest('.form-check').removeClass('has-success').addClass('has-danger');
+        },
+        success: function(element) {
+          $(element).closest('.form-group').removeClass('has-danger').addClass('has-success');
+          $(element).closest('.form-check').removeClass('has-danger').addClass('has-success');
+        },
+        errorPlacement: function(error, element) {
+          $(element).closest('.form-group').append(error);
+        },
+      });
+    }
+
+    $(document).ready(function() {
+      setFormValidation('#Validation');
+    });
+  </script>
   {{-- Page own JS --}}
   @yield('JS')
 
 </body>
+
+</html>

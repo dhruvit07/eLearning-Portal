@@ -47,8 +47,8 @@
                                 <label class="col-sm-2 col-form-label">Content</label>
                                 <div class="col-sm-10">
                                     <div class="form-group">
-                                        <textarea name="content" id="mytextarea" rows="5" class="form-control" required>
-                                        </textarea>
+                                        <textarea name="content" id="mytextarea" rows="5" class="form-control"
+                                            required></textarea>
                                         <span class="bmd-help">Enter the content of Exam Page!</span>
                                     </div>
                                 </div>
@@ -99,8 +99,8 @@
                                         <td>{{ $exam->name }}</td>
                                         <td>{!! $exam->content !!}</td>
                                         <td class="text-right">
-                                            <a href="{{ route('show.exam',['id'=>$exam->id]) }}"
-                                                target="_blank" class="btn btn-link btn-success btn-just-icon remove"><i
+                                            <a href="{{ route('show.exam',['id'=>$exam->id]) }}" target="_blank"
+                                                class="btn btn-link btn-success btn-just-icon remove"><i
                                                     class="material-icons">visibility</i></a>
                                             <a href="{{ route('admin.delete.exam',['id'=>$exam->id]) }}"
                                                 class="btn btn-link btn-danger btn-just-icon remove"><i

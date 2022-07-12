@@ -7,7 +7,7 @@
 <body>
     <section style="margin-bottom:-3rem;">
         <div class="container">
-            <h1>Check Your Mail for Email Verification!</h1>
+            <h2 class="p-5">Please Verify Your Email to Access this Page!</h2>
         </div>
     </section>
 </body>

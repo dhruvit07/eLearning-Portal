@@ -6,6 +6,8 @@ use App\Http\Controllers\Admin\ExamController as AdminExamController;
 use App\Http\Controllers\Admin\ExamTypeController as AdminExamTypeController;
 use App\Http\Controllers\Admin\SyllabusController as AdminSyllabusController;
 use App\Http\Controllers\Admin\TeamController as AdminTeamController;
+use App\Http\Controllers\Admin\GeneralSettingController as AdminGeneralSettingController;
+use App\Http\Controllers\Admin\PageController as AdminPageController;
 use App\Http\Controllers\Frontend\FileController;
 use App\Http\Controllers\Frontend\AuthController;
 use App\Http\Controllers\Frontend\HomeController;
@@ -13,6 +15,7 @@ use App\Http\Controllers\Frontend\ExamController;
 use App\Http\Controllers\Frontend\ExamTypeController;
 use App\Http\Controllers\Frontend\SyllabusController;
 use App\Http\Controllers\Frontend\TeamController;
+use App\Http\Controllers\Frontend\PageController;
 use App\Models\Exam;
 use App\Models\ExamType;
 use App\Models\Syllabus;
@@ -71,6 +74,14 @@ Breadcrumbs::for('show.syllabus', function (BreadcrumbTrail $trail, $id): void {
 Breadcrumbs::for('show.team', function (BreadcrumbTrail $trail): void {
     $trail->parent('home');
     $trail->push('Team', route('show.team'));
+});
+Breadcrumbs::for('show.about', function (BreadcrumbTrail $trail): void {
+    $trail->parent('home');
+    $trail->push('About', route('show.about'));
+});
+Breadcrumbs::for('show.mission', function (BreadcrumbTrail $trail): void {
+    $trail->parent('show.about');
+    $trail->push('Mission and Vision', route('show.mission'));
 });
 /*
 |--------------------------------------------------------------------------
@@ -132,6 +143,10 @@ Route::group(['prefix' => 'user/'], function () {
 
     //Team Page Route
     Route::get('team', [TeamController::class, 'index'])->name('show.team');
+
+    //About Route
+    Route::get('about', [PageController::class, 'about'])->name('show.about');
+    Route::get('about/mission-and-vision', [PageController::class, 'mission'])->name('show.mission');
 });
 
 /*
@@ -172,4 +187,14 @@ Route::group(['prefix' => 'admin/'], function () {
     Route::get('team', [AdminTeamController::class, 'index'])->name('admin.team');
     Route::post('team', [AdminTeamController::class, 'create'])->name('admin.add.member');
     Route::get('team/member/{id}', [AdminTeamController::class, 'delete'])->name('admin.delete.member');
+
+    //General Settings Route
+    Route::get('general-settings', [AdminGeneralSettingController::class, 'index'])->name('admin.generalSettings');
+    Route::post('general-settings/update', [AdminGeneralSettingController::class, 'update'])->name('admin.update.generalSettings');
+
+    //About Route
+    Route::get('about', [AdminPageController::class, 'about'])->name('admin.about');
+    Route::post('about/update', [AdminPageController::class, 'updatePage'])->name('admin.update.about');
+    Route::get('about/mission-and-vision', [AdminPageController::class, 'mission'])->name('admin.mission');
+    Route::post('about/mission-and-vision/update', [AdminPageController::class, 'updatePage'])->name('admin.update.mission');
 });

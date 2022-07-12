@@ -77,8 +77,8 @@
                                 <label class="col-sm-2 col-form-label">Content</label>
                                 <div class="col-sm-10">
                                     <div class="form-group">
-                                        <textarea name="content" id="mytextarea" rows="5" class="form-control" required>
-                                        </textarea>
+                                        <textarea name="content" id="mytextarea" rows="5" class="form-control"
+                                            required></textarea>
                                         <span class="bmd-help">Enter the content of Syllabus Page!</span>
                                     </div>
                                 </div>
@@ -150,7 +150,8 @@
                                 <td>{{ $syllabus->examType->name }}</td>
                                 <td>
                                     @foreach ($syllabus->files as $file)
-                                    <a target="_blank" href="{{ route('show.syllabus.file',['id'=>$file->id]) }}">{{ $file->name }}</a>
+                                    <a target="_blank" href="{{ route('show.syllabus.file',['id'=>$file->id]) }}">{{
+                                        $file->name }}</a>
                                     @endforeach
                                 </td>
                                 <td class="text-right">
