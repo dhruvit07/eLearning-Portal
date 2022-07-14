@@ -2,20 +2,25 @@
 
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\AuthController as AdminAuthController;
+use App\Http\Controllers\Admin\CarouselController;
 use App\Http\Controllers\Admin\ExamController as AdminExamController;
 use App\Http\Controllers\Admin\ExamTypeController as AdminExamTypeController;
 use App\Http\Controllers\Admin\SyllabusController as AdminSyllabusController;
 use App\Http\Controllers\Admin\TeamController as AdminTeamController;
 use App\Http\Controllers\Admin\GeneralSettingController as AdminGeneralSettingController;
 use App\Http\Controllers\Admin\PageController as AdminPageController;
+use App\Http\Controllers\Admin\ContactController as AdminContactController;
+use App\Http\Controllers\Admin\WhyUsController;
 use App\Http\Controllers\Frontend\FileController;
 use App\Http\Controllers\Frontend\AuthController;
+use App\Http\Controllers\Frontend\ContactController;
 use App\Http\Controllers\Frontend\HomeController;
 use App\Http\Controllers\Frontend\ExamController;
 use App\Http\Controllers\Frontend\ExamTypeController;
 use App\Http\Controllers\Frontend\SyllabusController;
 use App\Http\Controllers\Frontend\TeamController;
 use App\Http\Controllers\Frontend\PageController;
+use App\Http\Controllers\Frontend\ResetPasswordController;
 use App\Models\Exam;
 use App\Models\ExamType;
 use App\Models\Syllabus;
@@ -45,6 +50,10 @@ use Diglactic\Breadcrumbs\Generator as BreadcrumbTrail;
 
 Breadcrumbs::for('home', function (BreadcrumbTrail $trail): void {
     $trail->push('Home', route('home'));
+});
+Breadcrumbs::for('show.contact', function (BreadcrumbTrail $trail): void {
+    $trail->parent('home');
+    $trail->push('Contact', route('show.contact'));
 });
 
 Breadcrumbs::for('exams', function (BreadcrumbTrail $trail): void {
@@ -109,6 +118,11 @@ Route::post('/email/verification-notification', function (Request $request) {
 
     return back()->with('message', 'Verification link sent!');
 })->middleware(['auth', 'throttle:6,1'])->name('verification.send');
+
+Route::get('/forgot-password', [ResetPasswordController::class, 'index'])->name('password.request');
+Route::post('/forgot-password', [ResetPasswordController::class, 'send'])->name('password.email');
+Route::get('/reset-password/{token}', [ResetPasswordController::class, 'resetView'])->name('password.reset');
+Route::post('/reset', [ResetPasswordController::class, 'resetPassword'])->name('password.update');
 /*
 |--------------------------------------------------------------------------
 | Email verification Routes Ends
@@ -132,6 +146,8 @@ Route::group(['prefix' => 'user/'], function () {
     Route::post('sign-up', [AuthController::class, 'userSignUpPost'])->name('user.sign.up.post');
     Route::get('logout', [AuthController::class, 'logout'])->name('user.logout');
 
+
+
     // Exam Page Routes
     Route::get('exams',  [ExamController::class, 'index'])->name('exams');
     Route::get('exam/{id}',  [ExamController::class, 'show'])->name('show.exam')->where('id', '[0-9]+');
@@ -148,6 +164,10 @@ Route::group(['prefix' => 'user/'], function () {
     Route::get('about', [PageController::class, 'about'])->name('show.about');
     Route::get('about/mission-and-vision', [PageController::class, 'mission'])->name('show.mission');
 });
+
+Route::get('contact', [ContactController::class, 'index'])->name('show.contact');
+Route::post('contact', [ContactController::class, 'send'])->name('send.contact');
+
 
 /*
 |--------------------------------------------------------------------------
@@ -197,4 +217,16 @@ Route::group(['prefix' => 'admin/'], function () {
     Route::post('about/update', [AdminPageController::class, 'updatePage'])->name('admin.update.about');
     Route::get('about/mission-and-vision', [AdminPageController::class, 'mission'])->name('admin.mission');
     Route::post('about/mission-and-vision/update', [AdminPageController::class, 'updatePage'])->name('admin.update.mission');
+    Route::get('about/why-us', [WhyUsController::class, 'index'])->name('admin.why-us');
+    Route::post('about/why-us', [WhyUsController::class, 'create'])->name('admin.add.why-us');
+    Route::get('about/why-us/{id}', [WhyUsController::class, 'delete'])->name('admin.delete.why-us')->where('id', '[0-9]+');
+
+    //Carousel Route
+    Route::get('carousel', [CarouselController::class, 'index'])->name('admin.carousel');
+    Route::post('carousel', [CarouselController::class, 'create'])->name('admin.add.carousel');
+    Route::get('carousel/{id}', [CarouselController::class, 'delete'])->name('admin.delete.carousel')->where('id', '[0-9]+');
+
+    //Carousel Route
+    Route::get('contact', [AdminContactController::class, 'index'])->name('admin.contact');
+    Route::get('contact/{id}', [AdminContactController::class, 'delete'])->name('admin.delete.contact')->where('id', '[0-9]+');
 });

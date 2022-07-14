@@ -48,7 +48,7 @@ class Handler extends ExceptionHandler
                 ? response()->json([
                     'message' => $exception->getMessage()
                 ], 401)
-                : redirect()->guest(route('admin.sign.in'));
+                : response()->view('errors.' . '404', [], 404);
         }
 
         return $request->expectsJson()
@@ -61,15 +61,8 @@ class Handler extends ExceptionHandler
     {
 
         if ($this->isHttpException($exception)) {
-
-            if (request()->is('admin/*')) {
-                if ($exception->getStatusCode() == 404) {
-                    return response()->view('errors.' . '405', [], 404);
-                }
-            } else {
-                if ($exception->getStatusCode() == 404) {
-                    return response()->view('errors.' . '404', [], 404);
-                }
+            if ($exception->getStatusCode() == 404) {
+                return response()->view('errors.' . '404', [], 404);
             }
         }
 

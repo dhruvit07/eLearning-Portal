@@ -6,7 +6,6 @@
 @section('title','Sign In')
 @endif
 
-
 @section('content')
 
 <body>
@@ -31,6 +30,9 @@
                         <input type="text" name="email" placeholder="Email Address" />
                         <input type="password" name="password" placeholder="Password" />
                         <input type="submit" name="submit" value="Login" />
+                        <p class="signup">
+                            <a href="{{ route('password.request') }}">Forgot Password?</a>
+                        </p>
                         <p class="signup">
                             Don't have an account ?
                             <a href="#" onclick="toggleForm();">Sign Up.</a>

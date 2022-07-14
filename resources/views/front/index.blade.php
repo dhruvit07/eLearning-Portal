@@ -7,87 +7,48 @@
 <!-- Carousel Start -->
 <div class="container-fluid p-0 mb-5">
     <div class="owl-carousel header-carousel position-relative">
+        @foreach ($carousels as $carousel)
         <div class="owl-carousel-item position-relative">
-            <img class="img-fluid" src="{{ asset('assets/img/carousel-1.jpg') }}" alt="">
+            <img class="img-fluid" src="{{ asset('uploads/'.$carousel->image) }}" alt="">
             <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center"
-                style="background: rgba(24, 29, 56, .7);">
+                style="background: rgba(24, 29, 56, .5);">
                 <div class="container">
                     <div class="row justify-content-start">
                         <div class="col-sm-10 col-lg-8">
-                            <h5 class="text-primary text-uppercase mb-3 animated slideInDown">Best Online Courses</h5>
-                            <h1 class="display-3 text-white animated slideInDown">The Best Online Learning Platform</h1>
-                            <p class="fs-5 text-white mb-4 pb-2">Vero elitr justo clita lorem. Ipsum dolor at sed stet
-                                sit diam no. Kasd rebum ipsum et diam justo clita et kasd rebum sea sanctus eirmod
-                                elitr.</p>
-                            <a href="" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Read More</a>
-                            <a href="" class="btn btn-light py-md-3 px-md-5 animated slideInRight">Join Now</a>
+                            <h2 class="display-4 text-primary animated slideInDown">{{ $carousel->title }}</h2>
+                            <div class="fs-5 text-white mb-4 pb-2">{!! $carousel->content !!}</div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="owl-carousel-item position-relative">
-            <img class="img-fluid" src="{{ asset('assets/img/carousel-2.jpg') }}" alt="">
-            <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center"
-                style="background: rgba(24, 29, 56, .7);">
-                <div class="container">
-                    <div class="row justify-content-start">
-                        <div class="col-sm-10 col-lg-8">
-                            <h5 class="text-primary text-uppercase mb-3 animated slideInDown">Best Online Courses</h5>
-                            <h1 class="display-3 text-white animated slideInDown">Get Educated Online From Your Home
-                            </h1>
-                            <p class="fs-5 text-white mb-4 pb-2">Vero elitr justo clita lorem. Ipsum dolor at sed stet
-                                sit diam no. Kasd rebum ipsum et diam justo clita et kasd rebum sea sanctus eirmod
-                                elitr.</p>
-                            <a href="" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Read More</a>
-                            <a href="" class="btn btn-light py-md-3 px-md-5 animated slideInRight">Join Now</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        @endforeach
     </div>
 </div>
 <!-- Carousel End -->
+
 <!-- Service Start -->
 <div class="container-xxl py-5">
     <div class="container">
-        <div class="row g-4">
-            <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
-                <div class="service-item text-center pt-3">
-                    <div class="p-4">
-                        <i class="fa fa-3x fa-graduation-cap text-primary mb-4"></i>
-                        <h5 class="mb-3">Skilled Instructors</h5>
-                        <p>Diam elitr kasd sed at elitr sed ipsum justo dolor sed clita amet diam</p>
+        <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+            <h6 class="section-title bg-white text-center text-primary px-3">Why you Should Choose Us</h6>
+            <h1 class="mb-5">Why Us</h1>
+        </div>
+        <div class="container">
+            <div class="row g-4">
+                @foreach ($cards as $card)
+                <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="service-item text-center pt-3">
+                        <div class="p-4">
+                            <?php $i = rand(0,3)?>
+                            {!! $icons[$i] !!}
+                            <h5 class="mb-3">{{ $card->title }}</h5>
+                            {!! $card->content !!}
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.3s">
-                <div class="service-item text-center pt-3">
-                    <div class="p-4">
-                        <i class="fa fa-3x fa-globe text-primary mb-4"></i>
-                        <h5 class="mb-3">Online Classes</h5>
-                        <p>Diam elitr kasd sed at elitr sed ipsum justo dolor sed clita amet diam</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.5s">
-                <div class="service-item text-center pt-3">
-                    <div class="p-4">
-                        <i class="fa fa-3x fa-home text-primary mb-4"></i>
-                        <h5 class="mb-3">Home Projects</h5>
-                        <p>Diam elitr kasd sed at elitr sed ipsum justo dolor sed clita amet diam</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.7s">
-                <div class="service-item text-center pt-3">
-                    <div class="p-4">
-                        <i class="fa fa-3x fa-book-open text-primary mb-4"></i>
-                        <h5 class="mb-3">Book Library</h5>
-                        <p>Diam elitr kasd sed at elitr sed ipsum justo dolor sed clita amet diam</p>
-                    </div>
-                </div>
+                @endforeach
+
             </div>
         </div>
     </div>
@@ -107,27 +68,14 @@
                 <h6 class="section-title bg-white text-start text-primary pe-3">About Us</h6>
                 <h1 class="mb-4">{{ $about->title }}</h1>
                 {!! $about->content !!}
-                <div class="row gy-2 gx-4 mb-4">
-                    <div class="col-sm-6">
-                        <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>Skilled Instructors</p>
+                    <div class="row gy-2 gx-4 mb-4">
+                        @foreach ($cards as $card)
+                        <div class="col-sm-6">
+                            <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>{{ $card->title }}</p>
+                        </div>
+                        @endforeach
                     </div>
-                    <div class="col-sm-6">
-                        <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>Online Classes</p>
-                    </div>
-                    <div class="col-sm-6">
-                        <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>International Certificate</p>
-                    </div>
-                    <div class="col-sm-6">
-                        <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>Skilled Instructors</p>
-                    </div>
-                    <div class="col-sm-6">
-                        <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>Online Classes</p>
-                    </div>
-                    <div class="col-sm-6">
-                        <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>International Certificate</p>
-                    </div>
-                </div>
-                
+
             </div>
         </div>
     </div>
@@ -241,7 +189,8 @@
 <!-- Team End -->
 
 
-{{-- <!-- Testimonial Start -->
+{{--
+<!-- Testimonial Start -->
 <div class="container-xxl py-5 wow fadeInUp" data-wow-delay="0.1s">
     <div class="container">
         <div class="text-center">
@@ -255,7 +204,8 @@
                 <h5 class="mb-0">Client Name</h5>
                 <p>Profession</p>
                 <div class="testimonial-text bg-light text-center p-4">
-                    <p class="mb-0">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit diam amet diam et eos.
+                    <p class="mb-0">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit diam amet diam et
+                        eos.
                         Clita erat ipsum et lorem et sit.</p>
                 </div>
             </div>
@@ -265,7 +215,8 @@
                 <h5 class="mb-0">Client Name</h5>
                 <p>Profession</p>
                 <div class="testimonial-text bg-light text-center p-4">
-                    <p class="mb-0">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit diam amet diam et eos.
+                    <p class="mb-0">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit diam amet diam et
+                        eos.
                         Clita erat ipsum et lorem et sit.</p>
                 </div>
             </div>
@@ -275,7 +226,8 @@
                 <h5 class="mb-0">Client Name</h5>
                 <p>Profession</p>
                 <div class="testimonial-text bg-light text-center p-4">
-                    <p class="mb-0">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit diam amet diam et eos.
+                    <p class="mb-0">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit diam amet diam et
+                        eos.
                         Clita erat ipsum et lorem et sit.</p>
                 </div>
             </div>
@@ -285,7 +237,8 @@
                 <h5 class="mb-0">Client Name</h5>
                 <p>Profession</p>
                 <div class="testimonial-text bg-light text-center p-4">
-                    <p class="mb-0">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit diam amet diam et eos.
+                    <p class="mb-0">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit diam amet diam et
+                        eos.
                         Clita erat ipsum et lorem et sit.</p>
                 </div>
             </div>

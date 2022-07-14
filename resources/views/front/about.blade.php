@@ -21,6 +21,13 @@
                 <h6 class="section-title bg-white text-start text-primary pe-3">{{ $page->name }}</h6>
                 <h1 class="mb-4">{{ $page->title }}</h1>
                 {!! $page->content !!}
+                <div class="row gy-2 gx-4 mb-4">
+                    @foreach ($cards as $card)
+                    <div class="col-sm-6">
+                        <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>{{ $card->title }}</p>
+                    </div>
+                    @endforeach
+                </div>
             </div>
         </div>
     </div>
