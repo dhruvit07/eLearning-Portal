@@ -48,7 +48,7 @@
                                 <div class="col-sm-10">
                                     <div class="form-group">
                                         <textarea name="content" id="mytextarea" rows="5" class="form-control"
-                                            required></textarea>
+                                            ></textarea>
                                         <span class="bmd-help">Enter the content of Exam Page!</span>
                                     </div>
                                 </div>

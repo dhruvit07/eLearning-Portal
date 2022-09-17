@@ -66,7 +66,7 @@
                                 <label class="col-sm-3 col-form-label">Qualification</label>
                                 <div class="col-sm-9">
                                     <div class="form-group">
-                                        <input type="text" name="qualification" class="form-control" required>
+                                        <input type="text" name="qualification" class="form-control" >
                                         <span class="bmd-help">Enter Member Qualification!</span>
                                     </div>
                                 </div>

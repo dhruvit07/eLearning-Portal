@@ -9,6 +9,8 @@ use App\Models\Page;
 use App\Models\Carousel;
 use App\Models\WhyUs;
 use Auth;
+// use Illuminate\Support\Facades\Hash;
+
 
 
 class HomeController extends Controller
@@ -17,6 +19,7 @@ class HomeController extends Controller
     { }
     public function index()
     {
+        // return Hash::make('Sb3YOznY');
 
         $icons = array(
             '<i class="fa fa-3x fa-book-open text-primary mb-4"></i>',

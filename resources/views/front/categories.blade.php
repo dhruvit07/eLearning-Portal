@@ -14,7 +14,7 @@
         </div>
         <div class="row g-4">
             @foreach ($categories as $category)
-            <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
+            <div class="col-lg-4 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
                 <div class="service-item text-center pt-3">
                     <div class="p-4">
                         <a href="{{ route('show.category',['id' => $category->id]) }}">

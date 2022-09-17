@@ -17,7 +17,7 @@
             <img src="{{ asset('assets/img/not-found.webp') }}" alt="Not Found" class="pt-3">
             @endif
             @foreach ($syllabi as $syllabus)
-            <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
+            <div class="col-lg-4 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
                 <div class="service-item text-center pt-3">
                     <div class="p-4">
                         <h1 class="mb-3">{{ $syllabus->name }}</h1>

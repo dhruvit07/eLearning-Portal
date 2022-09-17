@@ -11,7 +11,7 @@
         <div class="owl-carousel-item position-relative">
             <img class="img-fluid" src="{{ asset('uploads/'.$carousel->image) }}" alt="">
             <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center"
-                style="background: rgba(24, 29, 56, .5);">
+                style="background: rgba(24, 29, 56,.3);">
                 <div class="container">
                     <div class="row justify-content-start">
                         <div class="col-sm-10 col-lg-8">
@@ -67,14 +67,7 @@
             <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.3s">
                 <h6 class="section-title bg-white text-start text-primary pe-3">About Us</h6>
                 <h1 class="mb-4">{{ $about->title }}</h1>
-                {!! $about->content !!}
-                    <div class="row gy-2 gx-4 mb-4">
-                        @foreach ($cards as $card)
-                        <div class="col-sm-6">
-                            <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>{{ $card->title }}</p>
-                        </div>
-                        @endforeach
-                    </div>
+                Brahmastra Academy is a new generation organization primarily aimed to offer solutions across multiple levels in EDUCATION. Brahmastra Academy was incorporated to impart quality education to students preparing for various board & competitive examinations. Enabled with rich leadership the Company is born with the vision of setting new benchmarks in the field of education.
 
             </div>
         </div>

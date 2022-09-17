@@ -1,7 +1,17 @@
 @extends('front.layouts.app')
 
 @section('title',$syllabus->name)
-
+@section('style')
+<style>
+    table{
+        width: 80%;
+    }
+    td {
+        border: 2px solid rgb(167, 167, 167);
+        padding: 5px 10px;
+    }
+</style>
+@endsection
 @section('content')
 <!-- BreadCrumbs Start -->
 {{ Breadcrumbs::render() }}
@@ -19,7 +29,7 @@
                 @foreach ($syllabus->files as $file)
                 <a href="{{ route('show.syllabus.file',['id'=>$file->id]) }}" target="_blank" rel="noopener noreferrer"
                     class="btn btn-primary px-3 m-2">Attachment {{ $i }}</a>
-                    <?php $i++; ?>
+                <?php $i++; ?>
                 @endforeach
             </div>
         </div>

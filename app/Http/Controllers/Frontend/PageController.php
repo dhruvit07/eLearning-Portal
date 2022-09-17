@@ -17,7 +17,8 @@ class PageController extends Controller
     }
     public function mission()
     {
+        $cards = WhyUs::all();
         $page = Page::where('name', '=', 'Our Mission and Our Vision')->first();
-        return view('front.about')->with('page', $page);
+        return view('front.about',compact('page','cards'));
     }
 }

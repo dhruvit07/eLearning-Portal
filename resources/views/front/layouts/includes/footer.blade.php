@@ -17,10 +17,11 @@
                     <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>{{ $gs->phone }}</p>
                     <p class="mb-2"><i class="fa fa-envelope me-3"></i>{{ $gs->email }}</p>
                     <div class="d-flex pt-2">
-                        <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-twitter"></i></a>
-                        <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-facebook-f"></i></a>
-                        <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-youtube"></i></a>
-                        <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-linkedin-in"></i></a>
+                        <a class="btn btn-outline-light btn-social" href="http://www.brahmastraacademy.com/#"><i class="fab fa-twitter"></i></a>
+                        <a class="btn btn-outline-light btn-social" href="https://www.facebook.com/IITNEETcoachingBRAHMASTRAacademy"><i class="fab fa-facebook-f"></i></a>
+                        <a class="btn btn-outline-light btn-social" href="http://www.brahmastraacademy.com/#"><i class="fab fa-youtube"></i></a>
+                        <a class="btn btn-outline-light btn-social" href="http://www.brahmastraacademy.com/#"><i class="fab fa-blogger-b"></i></a>
+                        <a class="btn btn-outline-light btn-social" href="http://www.brahmastraacademy.com/#"><i class="fab fa-google"></i></a>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6">

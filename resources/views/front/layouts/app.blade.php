@@ -9,7 +9,7 @@
 
 
     <!-- Favicon -->
-    <link href="{{ asset('favicon.ico') }}" rel="icon">
+    <link href="{{ asset("uploads/".$gs->favicon) }}" rel="icon">
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -30,6 +30,7 @@
     <link href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet">
 
     <link rel="stylesheet" href="{{ asset('assets/css/app.css') }}">
+    @yield('style')
 </head>
 
 <body>

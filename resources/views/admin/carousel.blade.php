@@ -60,7 +60,7 @@
                                 <div class="col-sm-10">
                                     <div class="form-group">
                                         <input type="text" name="title" class="form-control"
-                                            placeholder="Carousel Title" required>
+                                            placeholder="Carousel Title">
                                     </div>
                                 </div>
                                 <label class="col-sm-2 col-form-label">Image</label>
