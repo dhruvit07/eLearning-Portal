@@ -60,12 +60,12 @@
                                 <div class="col-sm-10">
                                     <div class="form-group">
                                         <input type="text" name="name" class="form-control" placeholder="Website Title"
-                                            value="{{ $gs->title }}" required>
+                                            value="{{ optional($gs)->title ?? '' }}" required>
                                     </div>
                                 </div>
                                 <label class="col-sm-2 col-form-label">Logo</label>
                                 <div class="col-sm-4">
-                                    <img class="col-sm-12 img-responsive" src="{{ asset('uploads/'.$gs->logo) }}"
+                                    <img class="col-sm-12 img-responsive" src="{{ asset('uploads/'.optional($gs)->logo ?? '') }}"
                                         alt="">
                                 </div>
                                 <div class="col-sm-6">
@@ -78,7 +78,7 @@
                                 </div>
                                 <label class="col-sm-2 col-form-label">Favicon</label>
                                 <div class="col-sm-4">
-                                    <img class="col-sm-12 img-responsive" src="{{ asset('uploads/'.$gs->favicon) }}"
+                                    <img class="col-sm-12 img-responsive" src="{{ asset('uploads/'.optional($gs)->favicon) }}"
                                         alt="">
                                 </div>
                                 <div class="col-sm-6">
@@ -93,35 +93,35 @@
                                 <div class="col-sm-10">
                                     <div class="form-group">
                                         <input type="email" email="true" name="email" placeholder="Website Email"
-                                            class="form-control" value="{{ $gs->email }}" required>
+                                            class="form-control" value="{{ optional($gs)->email }}" required>
                                     </div>
                                 </div>
                                 <label class="col-sm-2 col-form-label">Contact</label>
                                 <div class="col-sm-10">
                                     <div class="form-group">
                                         <input type="text" name="contact" placeholder="Website Contact"
-                                            class="form-control" value="{{ $gs->phone }}" required>
+                                            class="form-control" value="{{ optional($gs)->phone }}" required>
                                     </div>
                                 </div>
                                 <label class="col-sm-2 col-form-label">Address</label>
                                 <div class="col-sm-10">
                                     <div class="form-group">
                                         <input type="text" name="address" placeholder="Address"
-                                            class="form-control" value="{{ $gs->address }}" required>
+                                            class="form-control" value="{{ optional($gs)->address }}" required>
                                     </div>
                                 </div>
                                 <label class="col-sm-2 col-form-label">Footer</label>
                                 <div class="col-sm-10">
                                     <div class="form-group">
                                         <textarea name="footer" rows="3" placeholder="Website Contact"
-                                            class="form-control" required>{{ $gs->footer }}</textarea>
+                                            class="form-control" required>{{ optional($gs)->footer }}</textarea>
                                     </div>
                                 </div>
                                 <label class="col-sm-2 col-form-label">Copyright</label>
                                 <div class="col-sm-10">
                                     <div class="form-group">
                                         <textarea name="copyright" rows="3" placeholder="Website Contact"
-                                            class="form-control" required>{{ $gs->copyright }}</textarea>
+                                            class="form-control" required>{{ optional($gs)->copyright }}</textarea>
                                     </div>
                                 </div>
                                 <div class="col-sm-10 ml-auto">

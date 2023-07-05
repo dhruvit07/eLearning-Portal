@@ -19,6 +19,7 @@ class CreateGeneralSettingsTable extends Migration
             $table->string('favicon');
             $table->string('title');
             $table->string('email');
+            $table->string('address');
             $table->text('phone');
             $table->text('footer');
             $table->text('copyright');

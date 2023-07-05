@@ -9,7 +9,7 @@
 
 
     <!-- Favicon -->
-    <link href="{{ asset("uploads/".$gs->favicon) }}" rel="icon">
+    <link href="{{ asset("uploads/".optional($gs)->favicon) }}" rel="icon">
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">

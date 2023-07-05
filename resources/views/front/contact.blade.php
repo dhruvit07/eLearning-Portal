@@ -23,7 +23,7 @@
                     </div>
                     <div class="ms-3">
                         <h5 class="text-primary">Office</h5>
-                        <p class="mb-0">{{ $gs->address }}</p>
+                        <p class="mb-0">{{ optional($gs)->address }}</p>
                     </div>
                 </div>
                 <div class="d-flex align-items-center mb-3">
@@ -33,7 +33,7 @@
                     </div>
                     <div class="ms-3">
                         <h5 class="text-primary">Mobile</h5>
-                        <p class="mb-0">{{ $gs->phone }}</p>
+                        <p class="mb-0">{{ optional($gs)->phone }}</p>
                     </div>
                 </div>
                 <div class="d-flex align-items-center">
@@ -43,12 +43,12 @@
                     </div>
                     <div class="ms-3">
                         <h5 class="text-primary">Email</h5>
-                        <p class="mb-0">{{ $gs->email }}</p>
+                        <p class="mb-0">{{ optional($gs)->email }}</p>
                     </div>
                 </div>
             </div>
             {{-- <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
-                {{ $gs->embed }}
+                {{ optional($gs)->embed }}
             </div> --}}
 
             <div class="col-lg-8 col-md-12 wow fadeInUp" data-wow-delay="0.5s">

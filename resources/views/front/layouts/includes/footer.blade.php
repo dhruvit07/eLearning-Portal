@@ -13,9 +13,9 @@
                 </div>
                 <div class="col-lg-3 col-md-6">
                     <h4 class="text-white mb-3">Contact</h4>
-                    <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>{{ $gs->address }}</p>
-                    <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>{{ $gs->phone }}</p>
-                    <p class="mb-2"><i class="fa fa-envelope me-3"></i>{{ $gs->email }}</p>
+                    <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>{{ optional($gs)->address }}</p>
+                    <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>{{ optional($gs)->phone }}</p>
+                    <p class="mb-2"><i class="fa fa-envelope me-3"></i>{{ optional($gs)->email }}</p>
                     <div class="d-flex pt-2">
                         <a class="btn btn-outline-light btn-social" href="http://www.brahmastraacademy.com/#"><i class="fab fa-twitter"></i></a>
                         <a class="btn btn-outline-light btn-social" href="https://www.facebook.com/IITNEETcoachingBRAHMASTRAacademy"><i class="fab fa-facebook-f"></i></a>
@@ -33,8 +33,8 @@
                     @endforeach
                 </div>
                 <div class="col-lg-3 col-md-6">
-                    <h4 class="text-white mb-3">About {{ $gs->title }}</h4>
-                    {!! $gs->footer !!}
+                    <h4 class="text-white mb-3">About {{ optional($gs)->title }}</h4>
+                    {!! optional($gs)->footer !!}
                 </div>
             </div>
         </div>
@@ -42,7 +42,7 @@
             <div class="copyright">
                 <div class="row">
                     <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-                        {!! $gs->copyright !!}
+                        {!! optional($gs)->copyright !!}
 
                     </div>
                     <div class="col-md-6 text-center text-md-end">

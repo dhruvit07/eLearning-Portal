@@ -52,10 +52,6 @@ return [
     |
     */
 
-    'url' => env('APP_URL', 'https://www.mangoemporium.com/test/'),
-
-    'asset_url' => env('ASSET_URL', 'http://localhost/education-project-2/public'),
-
     /*
     |--------------------------------------------------------------------------
     | Application Timezone
